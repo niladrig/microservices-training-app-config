@@ -1,0 +1,16 @@
+server:
+  port: 9000
+
+zuul:
+  prefix: /api/v1
+  routes:
+    customer-service:
+      path: /customers/**
+      serviceId: customer-service
+      url: http://localhost:9090/
+    item-service:
+      path: /items/**
+      url: http://localhost:9092/
+    sales-order-service:
+      path: /orders/**
+      url: http://localhost:9091/
