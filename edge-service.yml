@@ -8,9 +8,20 @@ zuul:
       path: /customers/**
       serviceId: customer-service
       url: http://localhost:9090/
+      stripPrefix: false
     item-service:
       path: /items/**
       url: http://localhost:9092/
+      stripPrefix: false
     sales-order-service:
       path: /orders/**
       url: http://localhost:9091/
+      stripPrefix: false
+
+security:
+  basic:
+    enable: false
+       
+management:
+  security:
+    enabled: false
