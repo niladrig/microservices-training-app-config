@@ -11,34 +11,23 @@ logging:
     root: INFO
 
 server:
-  port: 9092
+  port: 9091
 
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     password: passw0rd
-    url: jdbc:mysql://localhost:3308/sales-order?useSSL=false
-    username: sales-order
+    url: jdbc:mysql://localhost:3307/item?useSSL=false
+    username: item
   devtools:
     livereload:
-      port: 35732
+      port: 35731
   jpa:
     hibernate:
       ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
-  rabbitmq:
-    host: localhost
-    listener:
-      simple:
-        concurrency: 4
-        max-concurrency: 8
-        retry:
-          initial-interval: 5000
-    username: user
-    password: passw0rd
-    port: 5672
 
 #eureka:
 #  client:
