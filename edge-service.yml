@@ -55,17 +55,14 @@ zuul:
     customer-service:
       path: /api/v1/customers/**
       stripPrefix: false
-      #url: ${https://customer-service.katsuki.cfapps.io/:http://localhost:9090/}
       service-id: customer-service
     item-service:
       path: /api/v1/items/**
       stripPrefix: false
-      url: http://localhost:9091/
       service-id: item-service
     sales-order-service:
       path: /api/v1/orders/**
       stripPrefix: false
-      url: http://localhost:9092/
       service-id: sales-order-service
 
 debug: false # Enable debug logs.
