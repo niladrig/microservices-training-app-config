@@ -1,0 +1,69 @@
+logging:
+  level:
+    com:
+      cognizant: INFO
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: TRACE
+    root: INFO
+
+server:
+  port: 9000
+
+spring:
+  devtools:
+    livereload:
+      port: 35730
+
+eureka:
+  client:
+    service-url: 
+      defaultZone: ${vcap.services.service-registry.credentials.uri:http://localhost:8761}/eureka
+    healthcheck:
+      enabled: true
+  instance:
+    hostname: ${vcap.application.uris[0]:localhost}
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: 443
+    metadata-map:
+      # Adding information about the application GUID and app instance index to 
+      # each instance metadata. This will be used for setting the X-CF-APP-INSTANCE header
+      # to instruct Go-Router where to route.
+      cfAppGuid: ${vcap.application.application_id}
+      cfInstanceIndex: ${INSTANCE_INDEX}
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+ribbon:
+  eureka:
+    enabled: false
+
+zuul:
+  host:
+    socket-timeout-millis: 30000
+  ignoredServices: '*'
+  routes:
+    customer-service:
+      path: /api/v1/customers/**
+      stripPrefix: false
+      url: http://localhost:9090/
+    item-service:
+      path: /api/v1/items/**
+      stripPrefix: false
+      url: http://localhost:9091/
+    sales-order-service:
+      path: /api/v1/orders/**
+      stripPrefix: false
+      url: http://localhost:9092/
+
+
+debug: false # Enable debug logs.
+trace: false # Enable trace logs.
