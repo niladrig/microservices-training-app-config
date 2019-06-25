@@ -8,8 +8,8 @@ logging:
         type: TRACE
     root: INFO
 
-debug: false # Enable debug logs.
-trace: false # Enable trace logs.
+debug: false
+trace: false
 
 server:
   port: 9092
