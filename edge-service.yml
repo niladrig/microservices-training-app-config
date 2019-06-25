@@ -8,6 +8,9 @@ logging:
         type: TRACE
     root: INFO
 
+debug: false # Enable debug logs.
+trace: false # Enable trace logs.
+
 server:
   port: 9000
 
@@ -67,6 +70,3 @@ zuul:
       path: /api/v1/orders/**
       stripPrefix: false
       service-id: sales-order-service
-
-debug: false # Enable debug logs.
-trace: false # Enable trace logs.

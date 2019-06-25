@@ -8,6 +8,9 @@ logging:
         type: TRACE
     root: INFO
 
+debug: false # Enable debug logs.
+trace: false # Enable trace logs.
+
 server:
   port: 9091
 
@@ -45,17 +48,9 @@ eureka:
       cfAppGuid:       ${vcap.application.application_id}
       cfInstanceIndex: ${INSTANCE_INDEX}
     lease-renewal-interval-in-seconds: 30
-    lease-expiration-duration-in-seconds: 2 
+    lease-expiration-duration-in-seconds: 2
 
-debug: false # Enable debug logs.
-trace: false # Enable trace logs.
-
-#dead:
-#  queue:
-#    name: dead-customer-queue
-#exchange:
-#  name: customer-exchange
-#queue:
-#  name: customer-queue
-#routing:
-#  key: customer.created
+management:
+  cloudfoundry:
+    skip-ssl-validation: true
+    enabled: true
