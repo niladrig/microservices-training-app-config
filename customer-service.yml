@@ -53,7 +53,7 @@ eureka:
       # Adding information about the application GUID and app instance index to 
       # each instance metadata. This will be used for setting the X-CF-APP-INSTANCE header
       # to instruct Go-Router where to route.
-      cfAppGuid:       ${vcap.application.application_id}
+      cfAppGuid: ${vcap.application.application_id}
       cfInstanceIndex: ${INSTANCE_INDEX}
     lease-renewal-interval-in-seconds: 30
     lease-expiration-duration-in-seconds: 2 
@@ -61,12 +61,12 @@ eureka:
 debug: false # Enable debug logs.
 trace: false # Enable trace logs.
 
-#dead:
-#  queue:
-#    name: dead-customer-queue
-#exchange:
-#  name: customer-exchange
-#queue:
-#  name: customer-queue
-#routing:
-#  key: customer.created
+dead:
+  queue:
+    name: dead-customer-queue
+exchange:
+  name: customer-exchange
+queue:
+  name: customer-queue
+routing:
+  key: customer.created
