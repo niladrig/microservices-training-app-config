@@ -54,7 +54,8 @@ zuul:
     customer-service:
       path: /api/v1/customers/**
       stripPrefix: false
-      url: http://localhost:9090/
+      url: ${https://customer-service.katsuki.cfapps.io/:http://localhost:9090/}
+      service-id: customer-service
     item-service:
       path: /api/v1/items/**
       stripPrefix: false
