@@ -42,6 +42,9 @@ management:
       exposure:
         include: '*'
     enabled-by-default: true 
+  cloudfoundry:
+    skip-ssl-validation: true
+    enabled: true
 
 ribbon:
   eureka:
