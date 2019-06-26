@@ -8,6 +8,9 @@ logging:
         type: TRACE
     root: INFO
 
+debug: false
+trace: false
+
 server:
   port: 9090
 
@@ -56,10 +59,12 @@ eureka:
       cfAppGuid: ${vcap.application.application_id}
       cfInstanceIndex: ${INSTANCE_INDEX}
     lease-renewal-interval-in-seconds: 30
-    lease-expiration-duration-in-seconds: 2 
+    lease-expiration-duration-in-seconds: 2
 
-debug: false # Enable debug logs.
-trace: false # Enable trace logs.
+management:
+  cloudfoundry:
+    skip-ssl-validation: true
+    enabled: true
 
 dead:
   queue:
