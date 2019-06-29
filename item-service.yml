@@ -1,3 +1,9 @@
+spring:
+  security:
+    user:
+      name: api-user
+      password: 31528803-9050-465f-b51f-e2b9a38e87a9
+
 logging:
   level:
     com:
@@ -10,25 +16,6 @@ logging:
 
 debug: false
 trace: false
-
-server:
-  port: 9091
-
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    password: passw0rd
-    url: jdbc:mysql://localhost:3307/item?useSSL=false
-    username: item
-  devtools:
-    livereload:
-      port: 35731
-  jpa:
-    hibernate:
-      ddl-auto: none
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
 
 eureka:
   client:
@@ -51,3 +38,24 @@ management:
   cloudfoundry:
     skip-ssl-validation: true
     enabled: true
+    
+---
+spring:
+  profiles: development
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: passw0rd
+    url: jdbc:mysql://localhost:3307/item?useSSL=false
+    username: item
+  devtools:
+    livereload:
+      port: 35731
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+server:
+  port: 9091
