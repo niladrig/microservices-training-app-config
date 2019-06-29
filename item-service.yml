@@ -1,10 +1,4 @@
 spring:
-  security:
-    user:
-      name: api-user
-      password: 31528803-9050-465f-b51f-e2b9a38e87a9
-
-spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     password: passw0rd
