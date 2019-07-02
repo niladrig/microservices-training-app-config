@@ -12,7 +12,7 @@ debug: false
 trace: false
 
 server:
-  port: 9000
+  port: 8080
 
 spring:
   devtools:
@@ -72,3 +72,10 @@ zuul:
       path: /api/v1/orders/**
       stripPrefix: false
       service-id: sales-order-service
+
+---
+spring:
+  profiles: development
+
+server:
+  port: 9000
